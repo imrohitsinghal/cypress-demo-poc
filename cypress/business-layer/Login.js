@@ -1,5 +1,5 @@
-import LoginPage from '../../pages/LoginPage'
-import CommonDialogs from '../../pages/dialogs/CommonDialog'
+import LoginPage from '../pages/LoginPage'
+import CommonDialogs from '../pages/dialogs/CommonDialog'
 const loginPage = new LoginPage()
 const dialog = new CommonDialogs()
 
