@@ -1,4 +1,4 @@
-import BasketPage from '../../pages/BasketPage'
+import BasketPage from '../pages/BasketPage'
 const basketPage = new BasketPage()
 
 class Basket {

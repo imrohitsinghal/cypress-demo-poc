@@ -1,5 +1,5 @@
-import DashboardPage from '../../pages/DashboardPage'
-import CommonDialogs from '../../pages/dialogs/CommonDialog'
+import DashboardPage from '../pages/DashboardPage'
+import CommonDialogs from '../pages/dialogs/CommonDialog'
 const dashboardPage = new DashboardPage()
 const dialog = new CommonDialogs()
 
