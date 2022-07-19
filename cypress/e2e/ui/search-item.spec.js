@@ -1,5 +1,5 @@
-import Dashboard from '../business-layer/Dashboard'
-import Search from '../business-layer/Search'
+import Dashboard from '../../business-layer/Dashboard'
+import Search from '../../business-layer/Search'
 
 const dashboard = new Dashboard()
 const search = new Search()
