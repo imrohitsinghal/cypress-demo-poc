@@ -19,16 +19,17 @@ describe('Items into Basket and Checkout', () => {
   })
 
   it('Add 1 item and Checkout with New Address', () => {
-    let product = 1
-    dashboard.addItemsToBasket({ product }).goToCart()
-    basket.verifyBasket(product).checkout()
+    let item = 1
+    dashboard.addItemsToBasket({ item }).goToCart()
+    basket.verifyBasket(item).checkout()
     checkout.selectAddress({ newAddress: true })
   })
 
   it('Add 2 items and Checkout with New Address', () => {
-    let product = 2
-    dashboard.addItemsToBasket({ product }).goToCart()
-    basket.verifyBasket(product).checkout()
+    let item = 1
+    let itemQty = 2
+    dashboard.addItemsToBasket({ item, itemQty }).goToCart()
+    basket.verifyBasket(item).checkout()
     checkout.selectAddress({ newAddress: true })
   })
 })

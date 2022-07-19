@@ -14,9 +14,9 @@ class Dashboard {
     dashboardPage.load()
   }
 
-  addItemsToBasket({ product, itemQty = 1 }) {
+  addItemsToBasket({ item, itemQty = 1 }) {
     this.loadDashboard()
-    for (let p = 0; p < product; p++) {
+    for (let p = 0; p < item; p++) {
       for (let qty = 1; qty <= itemQty; qty++) {
         dashboardPage.clickAddToBasket(p)
       }
