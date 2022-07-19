@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+.env
+package-lock.json
+
+# testing
+cypress/videos
+cypress/screenshots
+cypress/reports
+cypress/downloads/
+.history
+
+# Code editor
+.vscode
+.idea
+
+# misc
+.DS_Store
+*.tmp
