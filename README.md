@@ -11,23 +11,27 @@
   - `npm install` or `npm i`
 
 - Run all scenarios:
-  - `npm run test:ui` (This will run all UI Tests)
-  - `npm run test:api` (This will execute all API Tests)
 
-### Specs:
+  - `npm run test:ui` _This will run all UI Tests_
+  - `npm run test:api` _This will execute all API Tests_
 
-- All specs : `/cypress/e2e/`
+- Generate Test Report:
+
+  - `npm run report` _This will generate a report file under reports directory_
+  - `npm run pretest` **\*Note**: Execute before each run to delete any exisiting reports or screenshots\*
+
+### Specs and Reporting:
+
+- All specs : `cypress/e2e/`
 
 - Reports and Results:
 
-  - Report folder - `/cypress/report/`
-  - Screenshots - `/cypress/screenshots/`
+  - Report folder - `cypress/reports/`
+  - Screenshots - `cypress/screenshots/`
 
 ### Configurations
 
-- Environment - ``
-
-- Cypress - ``
+- Environment and Cypress - `cypress.config.js`
 
 ### Custom Cypress Commands:
 
@@ -35,4 +39,5 @@
 
 ### Without Headless:
 
-- Add `--headed` to the npm command
+- Add `--headed` to the npm command in package.json
+  - Eg: _cypress run --browser chrome **--headed** --env host=prod --spec \"cypress/e2e/\*.spec.js\"_
