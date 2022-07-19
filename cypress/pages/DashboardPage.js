@@ -15,7 +15,7 @@ const messageText = {
 
 class DashboardPage extends BasePage {
   load() {
-    this.visitUrl(this.appUrl)
+    this.visitUrl(this.appURL + '/#/')
     this.isLoaded()
     return this
   }

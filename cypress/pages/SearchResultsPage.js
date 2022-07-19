@@ -4,7 +4,7 @@ const items = 'mat-grid-tile.mat-grid-tile'
 
 class SearchResultsPage extends BasePage {
   load() {
-    this.visitUrl(this.appUrl + '/search')
+    this.visitUrl(this.appURL + '/#/search')
     this.isLoaded()
     return this
   }

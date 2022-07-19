@@ -1,7 +1,7 @@
 class BasePage {
   constructor() {
     this.host = Cypress.env('host')
-    this.appUrl = Cypress.env(Cypress.env('host')).url
+    this.appURL = Cypress.env(Cypress.env('host')).url
   }
 
   tap = (element) => {

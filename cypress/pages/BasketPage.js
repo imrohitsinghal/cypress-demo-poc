@@ -6,7 +6,7 @@ const itemName = 'mat-cell.mat-column-product'
 
 class BasketPage extends BasePage {
   load() {
-    this.visitUrl(this.appUrl + '/basket')
+    this.visitUrl(this.appURL + '/#/basket')
     this.isLoaded()
     return this
   }

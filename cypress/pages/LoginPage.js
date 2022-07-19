@@ -5,7 +5,7 @@ const passInputField = 'input#password'
 const loginBtn = 'button#loginButton'
 class LoginPage extends BasePage {
   load() {
-    this.visitUrl(Cypress.env(Cypress.env('host')).url + '/login')
+    this.visitUrl(this.appURL + '/#/login')
     this.isLoaded()
     return this
   }
