@@ -9,7 +9,7 @@ beforeEach(() => {
   apiUtils.getProducts().deleteItemsFromBasket()
 })
 
-describe('Add Items to basket and validate basket', () => {
+describe('Add and Delete items in Basket', () => {
   it('add 1 item to basket', () => {
     apiUtils
       .addItemToBasket({ qty: 1 })
@@ -27,16 +27,16 @@ describe('Add Items to basket and validate basket', () => {
         apiUtils.verifyItemsInBasket(items)
       })
   })
-})
 
-it('delete 1 of 2 items in basket', () => {
-  apiUtils
-    .addItemToBasket({ qty: 2 })
-    .deleteItemsFromBasket(1)
-    .getItemsInBasket()
-    .then((items) => {
-      apiUtils.verifyItemsInBasket(items)
-    })
+  it('delete 1 of 2 items in basket', () => {
+    apiUtils
+      .addItemToBasket({ qty: 2 })
+      .deleteItemsFromBasket(1)
+      .getItemsInBasket()
+      .then((items) => {
+        apiUtils.verifyItemsInBasket(items)
+      })
+  })
 })
 
 afterEach(() => {

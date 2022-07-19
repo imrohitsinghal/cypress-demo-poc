@@ -1,14 +1,15 @@
 import { valid as account } from '../fixtures/accounts.json'
+import BasePage from '../pages/BasePage'
 let headers = { Authorization: '', 'content-type': 'application/json' }
 const contentTypeHeader = { 'content-type': 'application/json' }
 
 let basketId = ''
 let itemsList = ''
 
-class APIUtils {
+class APIUtils extends BasePage {
   getToken() {
     cy.postRequest({
-      url: Cypress.env(Cypress.env('host')).url + '/rest/user/login',
+      url: this.appURL + '/rest/user/login',
       headers: contentTypeHeader,
       body: {
         email: account.email,
@@ -27,7 +28,7 @@ class APIUtils {
 
   getProducts() {
     cy.getRequest({
-      url: Cypress.env(Cypress.env('host')).url + '/api/Products',
+      url: this.appURL + '/api/Products',
       headers,
     }).then((res) => {
       let { body } = { ...res }
@@ -40,7 +41,7 @@ class APIUtils {
     itemsList.map((item, index) => {
       if (index < qty) {
         cy.postRequest({
-          url: Cypress.env(Cypress.env('host')).url + '/api/BasketItems',
+          url: this.appURL + '/api/BasketItems',
           headers,
           body: {
             ProductId: item.id,
@@ -58,7 +59,7 @@ class APIUtils {
   getItemsInBasket() {
     return cy
       .getRequest({
-        url: Cypress.env(Cypress.env('host')).url + `/rest/basket/${basketId}`,
+        url: this.appURL + `/rest/basket/${basketId}`,
         headers,
       })
       .then((res) => {
@@ -68,7 +69,7 @@ class APIUtils {
 
   verifyItemsInBasket(items) {
     cy.getRequest({
-      url: Cypress.env(Cypress.env('host')).url + `/rest/basket/${basketId}`,
+      url: this.appURL + `/rest/basket/${basketId}`,
       headers,
     }).then((res) => {
       res.body.data.Products.map((product, index) => {
@@ -81,16 +82,14 @@ class APIUtils {
 
   deleteItemsFromBasket(qty = 'all') {
     cy.getRequest({
-      url: Cypress.env(Cypress.env('host')).url + `/rest/basket/${basketId}`,
+      url: this.appURL + `/rest/basket/${basketId}`,
       headers,
     }).then((res) => {
       if (qty < res.body.data.Products.length) {
         res.body.data.Products.map((product, index) => {
           if (index < qty) {
             cy.deleteRequest({
-              url:
-                Cypress.env(Cypress.env('host')).url +
-                `/api/BasketItems/${product.BasketItem.id}`,
+              url: this.appURL + `/api/BasketItems/${product.BasketItem.id}`,
               headers,
             })
           }
@@ -98,9 +97,7 @@ class APIUtils {
       } else {
         res.body.data.Products.map((product) => {
           cy.deleteRequest({
-            url:
-              Cypress.env(Cypress.env('host')).url +
-              `/api/BasketItems/${product.BasketItem.id}`,
+            url: this.appURL + `/api/BasketItems/${product.BasketItem.id}`,
             headers,
           })
         })
