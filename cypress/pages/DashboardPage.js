@@ -54,6 +54,15 @@ class DashboardPage extends BasePage {
   clickBasketBtn() {
     this.tap(topHeader.basketBtn)
   }
+
+  clickSearchIcon() {
+    this.tap(topHeader.searchIcon)
+  }
+
+  enterSearchQuery(query) {
+    this.clickSearchIcon()
+    this.fill(topHeader.searchInput, `${query}{enter}`)
+  }
 }
 
 export default DashboardPage
