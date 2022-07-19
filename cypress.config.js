@@ -21,7 +21,7 @@ module.exports = defineConfig({
     browser: 'macbook-15',
     timeout: 30000,
     prod: {
-      url: 'https://juice-shop.guardrails.ai/#/',
+      url: 'https://juice-shop.guardrails.ai',
     },
   },
 })
