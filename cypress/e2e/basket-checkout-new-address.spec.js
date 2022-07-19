@@ -1,8 +1,8 @@
-import { valid } from '../../fixtures/accounts.json'
-import Login from '../../business-layer/Login'
-import Dashboard from '../../business-layer/Dashboard'
-import Basket from '../../business-layer/Basket'
-import Checkout from '../../business-layer/Checkout'
+import { valid } from '../fixtures/accounts.json'
+import Login from '../business-layer/Login'
+import Dashboard from '../business-layer/Dashboard'
+import Basket from '../business-layer/Basket'
+import Checkout from '../business-layer/Checkout'
 
 const dashboard = new Dashboard()
 const login = new Login()
@@ -20,6 +20,13 @@ describe('Items into Basket and Checkout', () => {
 
   it('Add 1 item and Checkout with New Address', () => {
     let product = 1
+    dashboard.addItemsToBasket({ product }).goToCart()
+    basket.verifyBasket(product).checkout()
+    checkout.selectAddress({ newAddress: true })
+  })
+
+  it('Add 2 items and Checkout with New Address', () => {
+    let product = 2
     dashboard.addItemsToBasket({ product }).goToCart()
     basket.verifyBasket(product).checkout()
     checkout.selectAddress({ newAddress: true })
