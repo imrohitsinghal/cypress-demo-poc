@@ -78,3 +78,37 @@ Cypress.Commands.add('fill', (element, inputText, clear = true) => {
     ? cy.findElement(element).clear().type(inputText)
     : cy.findElement(element).type(inputText)
 })
+
+/**
+ * Make a POST request
+ */
+Cypress.Commands.add('postRequest', ({ url, body, headers }) => {
+  cy.request({
+    method: 'POST',
+    url,
+    body,
+    headers,
+  })
+})
+
+/**
+ * Make a GET request
+ */
+Cypress.Commands.add('getRequest', ({ url, headers }) => {
+  cy.request({
+    method: 'GET',
+    url,
+    headers,
+  })
+})
+
+/**
+ * Make a DELETE request
+ */
+Cypress.Commands.add('deleteRequest', ({ url, headers }) => {
+  cy.request({
+    method: 'DELETE',
+    url,
+    headers,
+  })
+})
