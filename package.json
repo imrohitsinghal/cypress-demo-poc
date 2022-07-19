@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test-prod": "cypress run --browser chrome --env host=prod --spec \"cypress/integration/*/*.js\""
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "cypress": "^10.3.0"
+  },
+  "dependencies": {}
+}
